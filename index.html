@@ -64,7 +64,7 @@ select,input[type=text]{width:100%;height:38px;border:1px solid var(--line);bord
 .ans-header h1{margin:0;font-size:16px;line-height:1.45;font-weight:700}
 .ans-header .meta{margin-top:6px;font-size:12.5px;opacity:.93;display:flex;gap:5px 12px;flex-wrap:wrap}
 .ans-header .meta b{font-weight:600}
-.sec-h{font-weight:700;font-size:15px;margin:14px 12px 4px}
+.sec-h{font-weight:700;font-size:15px;margin:16px 12px 6px;padding:9px 12px;background:var(--accent-soft);color:var(--accent);border-radius:9px;border-left:4px solid var(--accent)}
 .sec-h .tip{font-weight:400;font-size:12px;color:var(--muted)}
 .ans-q{background:#fff;margin:10px 12px;border-radius:12px;padding:12px 14px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .ans-q .q-head{display:flex;align-items:center;gap:6px;margin-bottom:6px}
@@ -478,7 +478,7 @@ function startAnswer(){
     q.opts.forEach(o=>{
       optsHtml+=`<label class="opt" data-no="${q.no}" data-key="${o[0]}"><input type="${inputType}" name="q${q.no}" value="${o[0]}"><span class="opt-key">${o[0]}</span><span class="opt-text">${esc(o[1])}</span></label>`;
     });
-    html+=`<div class="ans-q" id="aq${q.no}" data-no="${q.no}" data-ans="${q.ans}"><div class="q-head"><span class="q-no">${q.no}</span><span class="badge-type">${TYPES[q.type]?.short||''}</span><span class="q-diff">${LV[q.d]||''}</span>${q.sc?'<span class="badge-sc">川</span>':''}</div><div class="q-stem">${esc(q.stem)}</div><div class="q-opts">${optsHtml}</div><div class="q-ans" id="qans${q.no}"></div></div>`;
+    html+=`<div class="ans-q" id="aq${q.no}" data-no="${q.no}" data-ans="${q.ans}"><div class="q-head"><span class="q-no">${q.no}</span><span class="q-diff">${LV[q.d]||''}</span>${q.sc?'<span class="badge-sc">川</span>':''}</div><div class="q-stem">${esc(q.stem)}</div><div class="q-opts">${optsHtml}</div><div class="q-ans" id="qans${q.no}"></div></div>`;
   });
   body.innerHTML=html;
   body.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{
